@@ -137,14 +137,17 @@ public class FileReader {
                 }
             }
 
-            //FOLLOW HOW PLAYERS ARE ADDED ONTOP OF COINS
-            Random rand = new Random();
-            for (int i = 0; i < gameboard.getNumOfPlayers(); i++) {
-                int max = rand.nextInt(gameboard.getHeight());
-                int min = rand.nextInt(gameboard.getWidth());
-                System.out.println(max + " " + min);
-                gameboard.addUpgradeToken(max, min);
-            }
+            // Random generation of car upgrade tokens
+//            Random rand = new Random();
+//            for (int i = 0; i < gameboard.getNumOfPlayers(); i++) {
+//                int max = rand.nextInt(gameboard.getHeight());
+//                int min = rand.nextInt(gameboard.getWidth());
+//                gameboard.addUpgradeToken(max, min);
+//            }
+            gameboard.addUpgradeToken(1, 1);
+            gameboard.addUpgradeToken(5, 5);
+            gameboard.addUpgradeToken(6, 6);
+            gameboard.addUpgradeToken(0, 1);
 
             return new Pair<>(gameboard, players);
 
@@ -233,6 +236,14 @@ public class FileReader {
                 gameboard.setPlayerPos(i, playerPos[i]);
             }
         }
+
+        // Random generation of car upgrade tokens
+//        Random rand = new Random();
+//        for (int i = 0; i < gameboard.getNumOfPlayers(); i++) {
+//            int max = rand.nextInt(gameboard.getHeight());
+//            int min = rand.nextInt(gameboard.getWidth());
+//            gameboard.addUpgradeToken(max, min);
+//        }
 
         return new Pair<>(gameboard, players);
     }

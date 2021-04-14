@@ -200,6 +200,16 @@ public class GameLogic {
         } else if (doubleMove) {
             doubleMove = false;
         } else {
+//            if (gameboard.isPlayerOnUpgrade() != -1) {
+//                System.out.println(currentPlayerNo + " player with " + players[currentPlayerNo].getUpgrade());
+//                players[gameboard.isPlayerOnUpgrade()].setUpgrade(true);
+//                if (players[currentPlayerNo].getUpgrade() == false) {
+//                    System.out.println("already upgraded");
+//                } else {
+//                    System.out.println("DOUBLE  YES");
+//                    doubleMove = true;
+//                }
+//            }
             phase = DRAW;
             currentPlayerNo = (currentPlayerNo + 1) % getNumberOfPlayers();
             currentPlayer = players[currentPlayerNo];

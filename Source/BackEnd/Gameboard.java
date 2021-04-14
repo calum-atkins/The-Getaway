@@ -468,6 +468,18 @@ public class Gameboard {
         return -1;
     }
 
+//    public int isPlayerOnUpgrade() throws Exception {
+//        int players = getNumOfPlayers();
+//        for (Coordinate upgradeCoor : upgradeCoors) {
+//            for (int j = 0; j < players; j++) {
+//                if (getPlayerPos(j).equals(upgradeCoor)) {
+//                    return j;
+//                }
+//            }
+//        }
+//        return -1;
+//    }
+
     /**
      * Checks the given coordinates if there is a player on that tile.
      *
@@ -655,7 +667,6 @@ public class Gameboard {
 
     public void addUpgradeToken(int x, int y) {
         upgradeCoors.add(new Coordinate(x, y));
-        System.out.println(x + " " + y);
     }
 
 

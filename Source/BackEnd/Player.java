@@ -23,6 +23,7 @@ public class Player {
     private SilkBag silkBag = new SilkBag(1237912379);
     private boolean backTracked;
     private Gameboard gameboard = new Gameboard(0,0,null);
+    private boolean upgrade;
 
     /**
      * Create a player and give them the silk bag and gameboard references.
@@ -35,12 +36,20 @@ public class Player {
         this.inventory = new ArrayList<>();
         this.gameboard = gameboard;
         this.backTracked = false;
+        this.upgrade = false;
     }
 
     public Player() {
 
     }
 
+//    public boolean getUpgrade() {
+//        return upgrade;
+//    }
+//
+//    public void setUpgrade(boolean upgrade) {
+//        this.upgrade = upgrade;
+//    }
 
     /**
      * Method to get the action tiles in the player's inventory.
