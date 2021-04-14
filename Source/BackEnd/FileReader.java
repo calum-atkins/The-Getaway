@@ -138,12 +138,13 @@ public class FileReader {
             }
 
             //FOLLOW HOW PLAYERS ARE ADDED ONTOP OF COINS
-//            Random rand = new Random();
-//            for (int i = 0; i < gameboard.getNumOfPlayers(); i++) {
-//                int max = rand.nextInt(gameboard.getHeight());
-//                int min = rand.nextInt(gameboard.getWidth());
-//                gameboard.addUpgradeToken(max, min);
-//            }
+            Random rand = new Random();
+            for (int i = 0; i < gameboard.getNumOfPlayers(); i++) {
+                int max = rand.nextInt(gameboard.getHeight());
+                int min = rand.nextInt(gameboard.getWidth());
+                System.out.println(max + " " + min);
+                gameboard.addUpgradeToken(max, min);
+            }
 
             return new Pair<>(gameboard, players);
 

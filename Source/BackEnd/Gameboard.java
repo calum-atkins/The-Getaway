@@ -56,6 +56,7 @@ public class Gameboard {
         this.goalCoors = new ArrayList<>();
         this.boardTiles = new ArrayList<>(width * height);
         this.playerLocations = new Coordinate[4][3];
+        this.upgradeCoors = new ArrayList<>();
     }
 
     /**
@@ -651,9 +652,10 @@ public class Gameboard {
 //    public ArrayList<Coordinate> getUpgradePos() {
 //        return upgradeCoors;
 //    }
-//    public void addUpgradeToken(int x, int y) {
-//        upgradeCoors.add(new Coordinate(x, y));
-//    }
+    public void addUpgradeToken(int x, int y) {
+        upgradeCoors.add(new Coordinate(x, y));
+        System.out.println(x + " " + y);
+    }
 
 
 }
