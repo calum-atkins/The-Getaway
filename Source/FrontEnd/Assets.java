@@ -203,14 +203,14 @@ public class Assets {
 		return player;
 	}
 
-//    public static ImageView getUpgrade() {
-//	    Image upgradeToken = get("car_upgrade");
-//	    ImageView token = new ImageView(upgradeToken);
-//	    token.setFitHeight(GameScreenController.tileWidth);
-//	    token.setFitWidth(GameScreenController.tileWidth);
-//	    token.setId("car_upgrade");
-//	    return token;
-//    }
+    public static ImageView getUpgrade() {
+	    Image upgradeToken = get("car_upgrade");
+	    ImageView token = new ImageView(upgradeToken);
+	    token.setFitHeight(GameScreenController.tileWidth);
+	    token.setFitWidth(GameScreenController.tileWidth);
+	    token.setId("car_upgrade");
+	    return token;
+    }
 
 	/**
 	 * Get an imageView of a location arrow, that matches the size of the tiles.

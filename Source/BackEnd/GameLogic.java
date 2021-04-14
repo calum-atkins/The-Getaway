@@ -142,13 +142,13 @@ public class GameLogic {
         return result;
     }
 
-//    public Coordinate[] getUpgradeLocations() {
-//        Coordinate[] result = new Coordinate[getNumberOfPlayers()];
-//        for (int i = 0; i < getNumberOfPlayers(); i++) {
-//            result[i] = gameboard.getUpgradePos().get(i);
-//        }
-//        return result;
-//    }
+    public Coordinate[] getUpgradeLocations() {
+        Coordinate[] result = new Coordinate[getNumberOfPlayers()];
+        for (int i = 0; i < getNumberOfPlayers(); i++) {
+            result[i] = gameboard.getUpgradePos().get(i);
+        }
+        return result;
+    }
 
 
 

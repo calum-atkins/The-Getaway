@@ -649,9 +649,10 @@ public class Gameboard {
         placeFixedTile(floorTile, new Coordinate(x, y));
     }
 
-//    public ArrayList<Coordinate> getUpgradePos() {
-//        return upgradeCoors;
-//    }
+    public ArrayList<Coordinate> getUpgradePos() {
+        return upgradeCoors;
+    }
+
     public void addUpgradeToken(int x, int y) {
         upgradeCoors.add(new Coordinate(x, y));
         System.out.println(x + " " + y);

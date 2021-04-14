@@ -415,14 +415,14 @@ public class GameScreenController extends StateLoad {
 		players.setPrefWidth((width + 4) * tileWidth);
 		fixed.setPrefWidth((width + 4) * tileWidth);
 		fixed.setPrefHeight((width + 4) * tileWidth);
-//		upgrades.setPrefWidth((width + 4) * tileWidth);
-//		upgrades.setPrefHeight((height + 4) * tileWidth);
+		upgrades.setPrefWidth((width + 4) * tileWidth);
+		upgrades.setPrefHeight((height + 4) * tileWidth);
 
 		tiles.getChildren().clear();
 		fixed.getChildren().clear();
 		players.getChildren().clear();
 		controls.getChildren().clear();
-//		upgrades.getChildren().clear();
+		upgrades.getChildren().clear();
 
 		// showing the tiles
 		for (int x = 0; x < width; x++) {
@@ -476,15 +476,15 @@ public class GameScreenController extends StateLoad {
 		}
 
 		//Showing upgrade tokens
-//		for (int i = 0; i < gameLogic.getNumberOfPlayers(); i++) {
-//			Coordinate location = gameLogic.getUpgradeLocations()[i];
-//
-//			ImageView upgradeView = new ImageView();
-//			upgradeView = Assets.getUpgrade();
-//			upgradeView.setTranslateX(location.getX() * tileWidth);
-//			upgradeView.setTranslateY(location.getY() * tileWidth);
-//			upgrades.getChildren().add(upgradeView);
-//		}
+		for (int i = 0; i < gameLogic.getNumberOfPlayers(); i++) {
+			Coordinate location = gameLogic.getUpgradeLocations()[i];
+
+			ImageView upgradeView = new ImageView();
+			upgradeView = Assets.getUpgrade();
+			upgradeView.setTranslateX(location.getX() * tileWidth);
+			upgradeView.setTranslateY(location.getY() * tileWidth);
+			upgrades.getChildren().add(upgradeView);
+		}
 	}
 
 	/**
