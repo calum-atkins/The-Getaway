@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<?import FrontEnd.ResizableCanvas?>
+<VBox onKeyPressed="#onKeyboard" prefHeight="883.0" prefWidth="900.0" style="-fx-background-image: url('//Assets/backgroundMenu.jpg'); -fx-background-size: cover; -fx-background-position: center;" stylesheets="@../../../Assets/menuStyle.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FrontEnd.LEMainController">
+  <children>
+      <MenuBar>
+         <menus>
+            <Menu fx:id="menFile" mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem fx:id="saveButton" mnemonicParsing="false" onAction="#onSaveButton" text="Save" />
+                  <MenuItem mnemonicParsing="false" onAction="#onQuitButton" text="Quit" />
+               </items>
+            </Menu>
+            <Menu fx:id="menHelp" mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem fx:id="menAuthor" mnemonicParsing="false" text="Author: " />
+                  <MenuItem fx:id="LEHelp" mnemonicParsing="false" onAction="#onLEHelp" text="Level Editor Guide" />
+                  <MenuItem mnemonicParsing="false" text="About" />
+               </items>
+            </Menu>
+            <Menu fx:id="menHistory" mnemonicParsing="false" text="History" />
+            <Menu fx:id="menName" mnemonicParsing="false" text="Currently Editing: " />
+         </menus>
+      </MenuBar>
+    <SplitPane dividerPositions="0.28507795100222716, 0.7015590200445434" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-image: url('//Assets/backgroundMenu.jpg');" VBox.vgrow="ALWAYS">
+      <items>
+            <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="828.0" prefWidth="253.0" style="-fx-background-image: url('//Assets/backgroundMenu.jpg'); -fx-background-color: BLACK;">
+               <children>
+              <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="676.0" prefWidth="243.0">
+                <children>
+                        <ImageView fx:id="imgCorner" fitHeight="71.0" fitWidth="71.0" layoutX="18.0" layoutY="50.0" onMouseClicked="#onCorner" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Assets/corner.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fx:id="imgStraight" fitHeight="71.0" fitWidth="71.0" layoutX="159.0" layoutY="50.0" onMouseClicked="#onStraight" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Assets/straight.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fx:id="imgT" fitHeight="76.0" fitWidth="71.0" layoutX="18.0" layoutY="152.0" onMouseClicked="#onT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Assets/t_shape.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fx:id="imgGoal" fitHeight="77.0" fitWidth="71.0" layoutX="88.0" layoutY="250.0" onMouseClicked="#onGoal" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Assets/goal.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <Label layoutX="18.0" layoutY="126.0" text="Corner" />
+                        <Label layoutX="17.0" layoutY="228.0" text="T-Shape" />
+                        <Label layoutX="159.0" layoutY="228.0" text="Empty" />
+                        <Label layoutX="159.0" layoutY="126.0" text="Straight" />
+                        <ImageView fx:id="imgEmpty" fitHeight="76.0" fitWidth="71.0" layoutX="159.0" layoutY="152.0" onMouseClicked="#onEmpty" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Assets/empty.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <Label layoutX="106.0" layoutY="326.0" text="Goal" />
+                        <ImageView fx:id="imgPlayer1" fitHeight="53.0" fitWidth="61.0" layoutX="9.0" layoutY="392.0" onMouseClicked="#onPlayer1" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Assets/playerPINK.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fx:id="imgPlayer2" fitHeight="53.0" fitWidth="61.0" layoutX="9.0" layoutY="462.0" onMouseClicked="#onPlayer2" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Assets/playerYELLOW.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fx:id="imgPlayer3" fitHeight="53.0" fitWidth="61.0" layoutX="9.0" layoutY="532.0" onMouseClicked="#onPlayer3" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Assets/playerTURQUOISE.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fx:id="imgPlayer4" fitHeight="53.0" fitWidth="61.0" layoutX="9.0" layoutY="602.0" onMouseClicked="#onPlayer4" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Assets/playerORANGE.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <Label layoutX="55.0" layoutY="392.0" text="Player 1" />
+                        <Label layoutX="54.0" layoutY="462.0" text="Player 2" />
+                        <Label fx:id="lblP3" layoutX="55.0" layoutY="532.0" text="Player 3" />
+                        <Label fx:id="lblP4" layoutX="55.0" layoutY="602.0" text="Player 4" />
+                        <Label layoutX="18.0" layoutY="20.0" text="Tiles" />
+                        <Label layoutX="18.0" layoutY="359.0" text="Players" />
+                        <Button fx:id="btnColor1" layoutX="144.0" layoutY="385.0" mnemonicParsing="false" onAction="#onColor1" prefHeight="53.0" prefWidth="101.0" stylesheets="@../../../Assets/menuStyle.css" text="Edit" AnchorPane.bottomAnchor="238.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Button fx:id="btnColor2" layoutX="144.0" layoutY="455.0" mnemonicParsing="false" onAction="#onColor2" prefHeight="53.0" prefWidth="101.0" stylesheets="@../../../Assets/menuStyle.css" text="Edit">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Button fx:id="btnColor3" layoutX="144.0" layoutY="525.0" mnemonicParsing="false" onAction="#onColor3" prefHeight="53.0" prefWidth="101.0" stylesheets="@../../../Assets/menuStyle.css" text="Edit">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Button fx:id="btnColor4" layoutX="144.0" layoutY="595.0" mnemonicParsing="false" onAction="#onColor4" prefHeight="53.0" prefWidth="101.0" stylesheets="@../../../Assets/menuStyle.css" text="Edit">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                </children>
+              </AnchorPane>
+                  <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                  <Label fx:id="CURSORRESETTINGLABEL">
+                     <cursor>
+                        <Cursor fx:constant="CLOSED_HAND" />
+                     </cursor>
+                  </Label>
+                  <Label fx:id="CURSORSETTINGLABEL">
+                     <cursor>
+                        <Cursor fx:constant="CLOSED_HAND" />
+                     </cursor>
+                  </Label>
+                  <Label fx:id="lblRotate" alignment="CENTER" contentDisplay="CENTER" text="Rotate" textAlignment="CENTER" />
+                  <HBox>
+                     <children>
+                        <Button fx:id="btnLeft" alignment="BOTTOM_CENTER" maxWidth="177.0" mnemonicParsing="false" onAction="#onLeft" prefHeight="32.0" prefWidth="159.0" text="&lt;- Left">
+                           <font>
+                              <Font size="6.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="btnRight" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#onRight" prefHeight="32.0" prefWidth="104.0" text="Right -&gt;">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+        <ScrollPane fx:id="paneCanv" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-image: url('//Assets/backgroundMenu.jpg');">
+               <content>
+                  <ResizableCanvas fx:id="mainCanvas" onMouseClicked="#onCanvasClick" onMouseEntered="#onCanvasEntered" onMouseMoved="#onMouseCanvas" />
+               </content>
+        </ScrollPane>
+            <VBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="253.0" style="-fx-background-color: BLACK; -fx-background-image: url('//Assets/backgroundMenu.jpg');">
+               <children>
+              <AnchorPane minHeight="-Infinity" prefHeight="713.0" prefWidth="195.0" style="-fx-background-image: url('//Assets/backgroundMenu.jpg');">
+                <children>
+                  <Label alignment="CENTER" layoutX="18.0" layoutY="20.0" style="&#10;" text="Settings" textAlignment="CENTER" wrapText="false">
+                           <font>
+                      <Font size="36.0" fx:id="x1" />
+                           </font>
+                           <textFill>
+                      <Color red="0.624" green="0.624" blue="0.624" fx:id="x2" />
+                           </textFill>
+                        </Label>
+                        <Label layoutX="27.0" layoutY="170.0" text="Width:" />
+                        <Label layoutX="23.0" layoutY="38.0" text="Height:" />
+                        <ImageView fx:id="imgDouble" fitHeight="71.0" fitWidth="71.0" layoutX="34.0" layoutY="390.0" onMouseClicked="#onDoubleMove" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Assets/double_move.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <Label alignment="CENTER" layoutX="15.0" layoutY="196.0" style="&#10;" text="Action Tiles" textAlignment="CENTER" wrapText="false">
+                           <font>
+                              <Font size="36.0" fx:id="x12" />
+                           </font>
+                           <textFill>
+                              <Color red="0.624" green="0.624" blue="0.624" fx:id="x22" />
+                           </textFill>
+                        </Label>
+                        <ImageView fx:id="imgIce" fitHeight="71.0" fitWidth="71.0" layoutX="157.0" layoutY="240.0" onMouseClicked="#onIce" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Assets/frozenEffect.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fx:id="imgFire" fitHeight="71.0" fitWidth="71.0" layoutX="33.0" layoutY="240.0" onMouseClicked="#onFire" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Assets/fire.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fx:id="imgBacktrack" fitHeight="71.0" fitWidth="71.0" layoutX="157.0" layoutY="380.0" onMouseClicked="#onBackTrack" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Assets/backtrack.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <Label layoutX="152.0" layoutY="470.0" text="Backtrack" />
+                        <Label layoutX="19.0" layoutY="470.0" text="Double Move" />
+                        <Label layoutX="25.0" layoutY="330.0" text="Fire Tiles" />
+                        <Label layoutX="153.0" layoutY="330.0" text="Ice Tiles" />
+                        <Label fx:id="lblHeight" layoutX="85.0" layoutY="38.0" text="0" />
+                        <Slider fx:id="sliWidth" layoutX="104.0" layoutY="172.0" onMousePressed="#handCursorChange" onMouseReleased="#handCursorReset">
+                           <cursor>
+                              <Cursor fx:constant="OPEN_HAND" />
+                           </cursor></Slider>
+                        <Slider fx:id="sliHeight" layoutX="98.0" layoutY="38.0" onMousePressed="#handCursorChange" onMouseReleased="#handCursorReset" orientation="VERTICAL" prefHeight="125.0" prefWidth="14.0">
+                           <cursor>
+                              <Cursor fx:constant="OPEN_HAND" />
+                           </cursor></Slider>
+                        <Button fx:id="btnEnableAction" layoutX="27.0" layoutY="502.0" mnemonicParsing="false" onAction="#onEnableAction" prefHeight="32.0" prefWidth="200.0" text="Enable All">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Button fx:id="btnDisableAction" layoutX="27.0" layoutY="544.0" mnemonicParsing="false" onAction="#onDisableAction" prefWidth="200.0" text="Disable All">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Label fx:id="lblWidth" layoutX="85.0" layoutY="170.0" text="0" />
+                </children>
+              </AnchorPane>
+                  <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                  <Label fx:id="lblStatus" alignment="CENTER" prefHeight="18.0" prefWidth="256.0" style="&#10;" text="Main View Loading..." textAlignment="CENTER" wrapText="false" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font size="18.0" fx:id="x11" />
+                     </font>
+                     <textFill>
+                        <Color red="0.624" green="0.624" blue="0.624" fx:id="x21" />
+                     </textFill>
+                  </Label>
+                  <Button fx:id="btnJukebox" mnemonicParsing="false" onAction="#onJukebox" prefHeight="32.0" prefWidth="258.0" text="Jukebox">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </VBox>
+      </items>
+    </SplitPane>
+  </children>
+</VBox>

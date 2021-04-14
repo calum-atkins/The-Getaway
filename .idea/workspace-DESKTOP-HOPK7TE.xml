@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="887891b2-c003-474a-84eb-cb9b4b2fbd07" name="Default Changelist" comment="Fixed LE Player locations saving not saving correctly.">
+      <change beforePath="$PROJECT_DIR$/Source/BackEnd/LESave.java" beforeDir="false" afterPath="$PROJECT_DIR$/Source/BackEnd/LESave.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="ProjectId" id="1occQNGCPsisOzPwb01XzJmLtuk" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Run" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="FrontEnd.Main" />
+      <module name="the-getaway-le" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="887891b2-c003-474a-84eb-cb9b4b2fbd07" name="Default Changelist" comment="" />
+      <created>1613589301990</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1613589301990</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Added LELoadSave class. Created basic methods called on load or saving of the board">
+      <created>1614190880089</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1614190880090</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Edited load level button to pass through .txt file to load from.&#10;Added some notes for structure on LELoadSave class">
+      <created>1614191876643</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1614191876643</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added more commenting structure of how to load/save">
+      <created>1614212983991</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1614212983991</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Created  creating of the text files due to variables from the Canvas presented">
+      <created>1614967839745</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1614967839745</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added more of the base code for saving of files&#10;Created the loading code for the height,width and tile types/rotations">
+      <created>1615225380551</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1615225380551</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Fixed static method issues">
+      <created>1615227042358</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1615227042358</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Save file updates : &#10;now saves height, width, player count, author, action tiles (not completed)">
+      <created>1615310492461</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1615310492461</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Save file now saves player colour and action tile bool value.">
+      <created>1615315858567</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1615315858567</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Cleaned up some code and now saving all data to the file needed, just need data from board render">
+      <created>1615316451097</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1615316451097</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Fixed up comments and data being wrote to files.">
+      <created>1615319949566</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1615319949566</updated>
+    </task>
+    <task id="LOCAL-00011" summary="initData gets loaded, LEMain screen loads up and sets labels appropriately">
+      <created>1615325861337</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1615325861337</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Fixed save class, will change format once player locations arer gathered correctly">
+      <created>1615375143854</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1615375143854</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Changed LESave to save board with commas to be read in easier">
+      <created>1615387856658</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1615387856658</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Fixed LE Player locations saving not saving correctly.">
+      <created>1615405770909</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1615405770909</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added LELoadSave class. Created basic methods called on load or saving of the board" />
+    <MESSAGE value="Edited load level button to pass through .txt file to load from.&#10;Added some notes for structure on LELoadSave class" />
+    <MESSAGE value="Added more commenting structure of how to load/save" />
+    <MESSAGE value="Created  creating of the text files due to variables from the Canvas presented" />
+    <MESSAGE value="Added more of the base code for saving of files&#10;Created the loading code for the height,width and tile types/rotations" />
+    <MESSAGE value="Fixed static method issues" />
+    <MESSAGE value="Save file updates : &#10;now saves height, width, player count, author, action tiles (not completed)" />
+    <MESSAGE value="Save file now saves player colour and action tile bool value." />
+    <MESSAGE value="Cleaned up some code and now saving all data to the file needed, just need data from board render" />
+    <MESSAGE value="Fixed up comments and data being wrote to files." />
+    <MESSAGE value="initData gets loaded, LEMain screen loads up and sets labels appropriately" />
+    <MESSAGE value="Fixed save class, will change format once player locations arer gathered correctly" />
+    <MESSAGE value="Changed LESave to save board with commas to be read in easier" />
+    <MESSAGE value="Fixed LE Player locations saving not saving correctly." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed LE Player locations saving not saving correctly." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Source/BackEnd/LESave.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

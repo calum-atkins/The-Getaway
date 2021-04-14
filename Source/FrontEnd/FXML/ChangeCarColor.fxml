@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url('//Assets/backgroundMenu.jpg'); -fx-background-size: cover; -fx-background-position: center;" stylesheets="@../../../Assets/menuStyle.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="color1" fitHeight="100.0" fitWidth="150.0" onMouseClicked="#onColor1Select" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                       <Image url="@../../../Assets/playerYELLOW.png" />
+                    </image>
+            </ImageView>
+            <ImageView fx:id="color2" fitHeight="100.0" fitWidth="150.0" onMouseClicked="#onColor2Select" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Assets/playerTURQUOISE.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="color3" fitHeight="100.0" fitWidth="150.0" onMouseClicked="#onColor3Select" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Assets/playerPINK.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="color4" fitHeight="100.0" fitWidth="150.0" onMouseClicked="#onColor4Select" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Assets/playerORANGE.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="color5" fitHeight="100.0" fitWidth="150.0" onMouseClicked="#onColor5Select" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Assets/playerAQUAMARINE.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="color6" fitHeight="100.0" fitWidth="150.0" onMouseClicked="#onColor6Select" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Assets/playerGREY.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="color7" fitHeight="100.0" fitWidth="150.0" onMouseClicked="#onColor7Select" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Assets/playerBURGUNDY.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="color8" fitHeight="100.0" fitWidth="150.0" onMouseClicked="#onColor8Select" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Assets/playerGLAUCOUS.png" />
+               </image></ImageView>
+            <ImageView fx:id="color9" fitHeight="100.0" fitWidth="150.0" onMouseClicked="#onColor9Select" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Assets/playerWHITE.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="color10" fitHeight="100.0" fitWidth="150.0" onMouseClicked="#onColor10Select" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Assets/playerBLACK.png" />
+               </image>
+            </ImageView>
+         </children>
+      </FlowPane>
+   </center>
+   <bottom>
+      <Button fx:id="changeColorButton" mnemonicParsing="false" onAction="#onChangeColor" prefHeight="36.0" prefWidth="144.0" text="Change Color" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
