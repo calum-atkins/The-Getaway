@@ -203,6 +203,15 @@ public class Assets {
 		return player;
 	}
 
+    public static ImageView getPlayerUpgraded(CarColours colour) {
+        Image playerModel = get("player" + colour.toString() + "-selected");
+        ImageView player = new ImageView(playerModel);
+        player.setFitHeight(GameScreenController.tileWidth);
+        player.setFitWidth(GameScreenController.tileWidth);
+        player.setId("player " + colour.toString());
+        return player;
+    }
+
     public static ImageView getUpgrade() {
 	    Image upgradeToken = get("car_upgrade");
 	    ImageView token = new ImageView(upgradeToken);

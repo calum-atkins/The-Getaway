@@ -43,13 +43,13 @@ public class Player {
 
     }
 
-//    public boolean getUpgrade() {
-//        return upgrade;
-//    }
-//
-//    public void setUpgrade(boolean upgrade) {
-//        this.upgrade = upgrade;
-//    }
+    public boolean getUpgrade() {
+        return upgrade;
+    }
+
+    public void setUpgrade(boolean upgrade) {
+        this.upgrade = upgrade;
+    }
 
     /**
      * Method to get the action tiles in the player's inventory.

@@ -52,6 +52,14 @@ public class GameLogic {
 		this.gameSaver = gameSaver;
 	}
 
+	public void setUpgraded(int playerNo) {
+	    players[playerNo].setUpgrade(true);
+    }
+
+    public boolean getUpgraded(int playerNo) {
+	    return players[playerNo].getUpgrade();
+    }
+
     /**
      * Returns the current phase of the game
      *
@@ -62,14 +70,24 @@ public class GameLogic {
         return this.phase;
     }
 
+    /**
+     * Increase upgrade token number by one
+     */
     public static void addUpgrade() {
         numberUpgrade += 1;
     }
 
+    /**
+     * Reduce upgrade token number by one
+     */
     public static void removeUpgrade() {
         numberUpgrade -= 1;
     }
 
+    /**
+     *
+     * @return number of upgrade tokens
+     */
     public int getNumberUpgrade() {
         return numberUpgrade;
     }
@@ -212,6 +230,7 @@ public class GameLogic {
         for (Coordinate coor : gameboard.getUpgradePos()) {
             if (coor.getX() == location.getX()
                 && coor.getY() == location.getY()) {
+                players[currentPlayerNo].setUpgrade(true);
                 remove = true;
             }
         }

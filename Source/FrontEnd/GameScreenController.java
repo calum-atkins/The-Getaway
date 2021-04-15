@@ -451,13 +451,27 @@ public class GameScreenController extends StateLoad {
 			//TODO Hardcoding the colours for now, but this will need to be changed during integration
 			ImageView playerView = new ImageView();
 			if (i == 0)	{
-				playerView = Assets.getPlayer(CarColours.PINK);
+				if (gameLogic.getUpgraded(i) == false) {
+					playerView = Assets.getPlayer(CarColours.PINK);
+				} else {
+					playerView = Assets.getPlayerUpgraded(CarColours.PINK);
+				}
 			}else if (i == 1)	{
-				playerView = Assets.getPlayer(CarColours.YELLOW);
+				if (gameLogic.getUpgraded(i) == false) {
+					playerView = Assets.getPlayer(CarColours.YELLOW);
+				} else {
+					playerView = Assets.getPlayerUpgraded(CarColours.YELLOW);
+				}
 			}else if (i == 2)	{
-				playerView = Assets.getPlayer(CarColours.TURQUOISE);
+				if (gameLogic.getUpgraded(i) == false) {
+					playerView = Assets.getPlayer(CarColours.TURQUOISE);
+				} else {
+					playerView = Assets.getPlayerUpgraded(CarColours.TURQUOISE);				}
 			}else if (i == 3)	{
-				playerView = Assets.getPlayer(CarColours.ORANGE);
+				if (gameLogic.getUpgraded(i) == false) {
+					playerView = Assets.getPlayer(CarColours.ORANGE);
+				} else {
+					playerView = Assets.getPlayerUpgraded(CarColours.ORANGE);				}
 			}
 			playerView.setTranslateX(location.getX() * tileWidth);
 			playerView.setTranslateY(location.getY() * tileWidth);

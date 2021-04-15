@@ -146,7 +146,7 @@ public class FileReader {
 //            }
             gameboard.addUpgradeToken(new Coordinate(1, 1));
             gameboard.addUpgradeToken(new Coordinate(5, 5));
-            gameboard.addUpgradeToken(new Coordinate(6, 6));
+            gameboard.addUpgradeToken(new Coordinate(0, 5));
             gameboard.addUpgradeToken(new Coordinate(0, 1));
 
 
