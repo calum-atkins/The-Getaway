@@ -468,17 +468,17 @@ public class Gameboard {
         return -1;
     }
 
-//    public int isPlayerOnUpgrade() throws Exception {
-//        int players = getNumOfPlayers();
-//        for (Coordinate upgradeCoor : upgradeCoors) {
-//            for (int j = 0; j < players; j++) {
-//                if (getPlayerPos(j).equals(upgradeCoor)) {
-//                    return j;
-//                }
-//            }
-//        }
-//        return -1;
-//    }
+    public int isPlayerOnUpgrade() throws Exception {
+        int players = getNumOfPlayers();
+        for (Coordinate upgradeCoor : upgradeCoors) {
+            for (int j = 0; j < players; j++) {
+                if (getPlayerPos(j).equals(upgradeCoor)) {
+                    return j;
+                }
+            }
+        }
+        return -1;
+    }
 
     /**
      * Checks the given coordinates if there is a player on that tile.
@@ -665,8 +665,14 @@ public class Gameboard {
         return upgradeCoors;
     }
 
-    public void addUpgradeToken(int x, int y) {
-        upgradeCoors.add(new Coordinate(x, y));
+    public void addUpgradeToken(Coordinate coor) {
+        upgradeCoors.add(coor);
+        GameLogic.addUpgrade();
+    }
+
+    public void removeUpgradeToken(Coordinate coor) {
+        upgradeCoors.remove(coor);
+        GameLogic.removeUpgrade();
     }
 
 

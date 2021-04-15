@@ -24,6 +24,7 @@ public class GameLogic {
     Player[] players;
     int numberOfPlayers;
     int currentPlayerNo;
+    static int numberUpgrade;
     Player currentPlayer;
     // Current phase of the game, Draw|Floor|Action|Move
     Phase phase;
@@ -59,6 +60,18 @@ public class GameLogic {
      */
     public Phase getGamePhase() {
         return this.phase;
+    }
+
+    public static void addUpgrade() {
+        numberUpgrade += 1;
+    }
+
+    public static void removeUpgrade() {
+        numberUpgrade -= 1;
+    }
+
+    public int getNumberUpgrade() {
+        return numberUpgrade;
     }
 
     /**
@@ -144,7 +157,7 @@ public class GameLogic {
 
     public Coordinate[] getUpgradeLocations() {
         Coordinate[] result = new Coordinate[getNumberOfPlayers()];
-        for (int i = 0; i < getNumberOfPlayers(); i++) {
+        for (int i = 0; i < gameboard.getUpgradePos().size(); i++) {
             result[i] = gameboard.getUpgradePos().get(i);
         }
         return result;
@@ -195,21 +208,21 @@ public class GameLogic {
     public void move(Coordinate location) throws Exception {
         gameSaver.playerMove(location);
         gameboard.setPlayerPos(currentPlayerNo, location);
+        boolean remove = false;
+        for (Coordinate coor : gameboard.getUpgradePos()) {
+            if (coor.getX() == location.getX()
+                && coor.getY() == location.getY()) {
+                remove = true;
+            }
+        }
+        if (remove == true) {
+            gameboard.removeUpgradeToken(location);
+        }
         if (gameboard.isPlayerOnGoal() != -1) {
             phase = WIN;
         } else if (doubleMove) {
             doubleMove = false;
         } else {
-//            if (gameboard.isPlayerOnUpgrade() != -1) {
-//                System.out.println(currentPlayerNo + " player with " + players[currentPlayerNo].getUpgrade());
-//                players[gameboard.isPlayerOnUpgrade()].setUpgrade(true);
-//                if (players[currentPlayerNo].getUpgrade() == false) {
-//                    System.out.println("already upgraded");
-//                } else {
-//                    System.out.println("DOUBLE  YES");
-//                    doubleMove = true;
-//                }
-//            }
             phase = DRAW;
             currentPlayerNo = (currentPlayerNo + 1) % getNumberOfPlayers();
             currentPlayer = players[currentPlayerNo];

@@ -476,7 +476,7 @@ public class GameScreenController extends StateLoad {
 		}
 
 		//Showing upgrade tokens
-		for (int i = 0; i < gameLogic.getNumberOfPlayers(); i++) {
+		for (int i = 0; i < gameLogic.getNumberUpgrade(); i++) {
 			Coordinate location = gameLogic.getUpgradeLocations()[i];
 
 			ImageView upgradeView = new ImageView();
@@ -721,7 +721,7 @@ public class GameScreenController extends StateLoad {
 				}
 				controls.getChildren().clear();
 				TranslateTransition walk = new TranslateTransition();
-				walk.setToX(coordinate.getX() * tileWidth);
+				walk.setToX(coordinate.getX() * tileWidth); //HERE
 				walk.setToY(coordinate.getY() * tileWidth);
 				walk.setNode(currentPlayer);
 				walk.setDuration(new Duration(500));

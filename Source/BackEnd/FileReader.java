@@ -144,10 +144,11 @@ public class FileReader {
 //                int min = rand.nextInt(gameboard.getWidth());
 //                gameboard.addUpgradeToken(max, min);
 //            }
-            gameboard.addUpgradeToken(1, 1);
-            gameboard.addUpgradeToken(5, 5);
-            gameboard.addUpgradeToken(6, 6);
-            gameboard.addUpgradeToken(0, 1);
+            gameboard.addUpgradeToken(new Coordinate(1, 1));
+            gameboard.addUpgradeToken(new Coordinate(5, 5));
+            gameboard.addUpgradeToken(new Coordinate(6, 6));
+            gameboard.addUpgradeToken(new Coordinate(0, 1));
+
 
             return new Pair<>(gameboard, players);
 
