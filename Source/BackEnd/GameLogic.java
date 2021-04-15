@@ -28,6 +28,7 @@ public class GameLogic {
     Player currentPlayer;
     // Current phase of the game, Draw|Floor|Action|Move
     Phase phase;
+    int counter = 0;
 
     // Special flags
     // True if player gets two moves.
@@ -241,6 +242,16 @@ public class GameLogic {
             phase = WIN;
         } else if (doubleMove) {
             doubleMove = false;
+        } else if (this.getUpgraded(currentPlayerNo) == true) {
+            if (counter == 0) {
+                phase = MOVE;
+                counter++;
+            } else {
+                counter--;
+                phase = DRAW;
+                currentPlayerNo = (currentPlayerNo + 1) % getNumberOfPlayers();
+                currentPlayer = players[currentPlayerNo];
+            }
         } else {
             phase = DRAW;
             currentPlayerNo = (currentPlayerNo + 1) % getNumberOfPlayers();
