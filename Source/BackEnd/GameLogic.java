@@ -61,6 +61,14 @@ public class GameLogic {
 	    return players[playerNo].getUpgrade();
     }
 
+    public void setColour(int i, CarColours colour) {
+        players[i].setColour(colour);
+    }
+
+    public CarColours getColour(int playerNo) {
+        return players[playerNo].getColour();
+    }
+
     /**
      * Returns the current phase of the game
      *

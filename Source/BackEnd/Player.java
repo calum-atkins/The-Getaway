@@ -1,5 +1,8 @@
 package BackEnd;
 
+import FrontEnd.GameScreenController;
+
+import java.awt.*;
 import java.util.ArrayList;
 
 /**
@@ -24,6 +27,8 @@ public class Player {
     private boolean backTracked;
     private Gameboard gameboard = new Gameboard(0,0,null);
     private boolean upgrade;
+    private CarColours colour;
+    private static int counter;
 
     /**
      * Create a player and give them the silk bag and gameboard references.
@@ -37,16 +42,45 @@ public class Player {
         this.gameboard = gameboard;
         this.backTracked = false;
         this.upgrade = false;
+        System.out.println(counter);
+        switch (counter) {
+            case 0 : GameScreenController.addColour(CarColours.PINK); System.out.println("1");break;
+            case 1 : GameScreenController.addColour(CarColours.YELLOW); System.out.println("2");break;
+            case 2 : GameScreenController.addColour(CarColours.TURQUOISE); System.out.println("3");break;
+            case 3 : GameScreenController.addColour(CarColours.ORANGE); System.out.println("4");break;
+        }
+        counter++;
     }
 
     public Player() {
 
     }
 
+    /**
+     * @return colour
+     */
+    public CarColours getColour() {
+        return colour;
+    }
+
+    /**
+     * @param colour
+     */
+    public void setColour(CarColours colour) {
+        this.colour = colour;
+    }
+
+    /**
+     *
+     * @return Upgraded car
+     */
     public boolean getUpgrade() {
         return upgrade;
     }
 
+    /**
+     * @param upgrade upgraded boolean
+     */
     public void setUpgrade(boolean upgrade) {
         this.upgrade = upgrade;
     }

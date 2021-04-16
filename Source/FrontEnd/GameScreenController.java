@@ -1,6 +1,7 @@
 package FrontEnd;
 
 import BackEnd.*;
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
@@ -92,6 +93,7 @@ public class GameScreenController extends StateLoad {
 	public Phase phase;
 	private GameLogic gameLogic;
 	public static int tileWidth;
+	public static ArrayList<CarColours> carColoursArrayList = new ArrayList<>();
 
 	/***
 	 * Gets all resources for gameScreen
@@ -448,46 +450,18 @@ public class GameScreenController extends StateLoad {
 		for (int i = 0; i < gameLogic.getPlayerLocations().length; i++) {
 			Coordinate location = gameLogic.getPlayerLocations()[i];
 
-			//TODO Hardcoding the colours for now, but this will need to be changed during integration
 			ImageView playerView = new ImageView();
-			if (i == 0)	{
-				if (gameLogic.getUpgraded(i) == false) {
-					playerView = Assets.getPlayer(CarColours.PINK);
-				} else {
-					playerView = Assets.getPlayerUpgraded(CarColours.PINK);
-				}
-			}else if (i == 1)	{
-				if (gameLogic.getUpgraded(i) == false) {
-					playerView = Assets.getPlayer(CarColours.YELLOW);
-				} else {
-					playerView = Assets.getPlayerUpgraded(CarColours.YELLOW);
-				}
-			}else if (i == 2)	{
-				if (gameLogic.getUpgraded(i) == false) {
-					playerView = Assets.getPlayer(CarColours.TURQUOISE);
-				} else {
-					playerView = Assets.getPlayerUpgraded(CarColours.TURQUOISE);				}
-			}else if (i == 3)	{
-				if (gameLogic.getUpgraded(i) == false) {
-					playerView = Assets.getPlayer(CarColours.ORANGE);
-				} else {
-					playerView = Assets.getPlayerUpgraded(CarColours.ORANGE);				}
+			if (gameLogic.getUpgraded(i) == false) {
+				playerView = Assets.getPlayer(carColoursArrayList.get(i));
+			} else {
+				playerView = Assets.getPlayerUpgraded(carColoursArrayList.get(i));
 			}
 			playerView.setTranslateX(location.getX() * tileWidth);
 			playerView.setTranslateY(location.getY() * tileWidth);
 			players.getChildren().add(playerView);
 		}
-
 		//Showing players turn
-		if (gameLogic.getPlayersTurn() == 0) {
-			imagePlayer.setImage(new Image(new FileInputStream("Assets\\playerPINK.png")));
-		} else if (gameLogic.getPlayersTurn() == 1) {
-			imagePlayer.setImage(new Image(new FileInputStream("Assets\\playerYELLOW.png")));
-		} else if (gameLogic.getPlayersTurn() == 2) {
-			imagePlayer.setImage(new Image(new FileInputStream("Assets\\playerTURQUOISE.png")));
-		} else if (gameLogic.getPlayersTurn() == 3) {
-			imagePlayer.setImage(new Image(new FileInputStream("Assets\\playerORANGE.png")));
-		}
+		imagePlayer.setImage(new Image(new FileInputStream("Assets\\player" + carColoursArrayList.get(gameLogic.getPlayersTurn()).toString() + ".png")));
 
 		//Showing upgrade tokens
 		for (int i = 0; i < gameLogic.getNumberUpgrade(); i++) {
@@ -500,6 +474,8 @@ public class GameScreenController extends StateLoad {
 			upgrades.getChildren().add(upgradeView);
 		}
 	}
+
+
 
 	/**
 	 * Clears the game and starts a new one with given starting board
@@ -855,5 +831,9 @@ public class GameScreenController extends StateLoad {
 			});
 		}
 		mainLoop();
+	}
+
+	public static void addColour(CarColours col) {
+		carColoursArrayList.add(col);
 	}
 }

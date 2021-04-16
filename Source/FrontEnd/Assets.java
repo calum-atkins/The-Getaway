@@ -203,6 +203,10 @@ public class Assets {
 		return player;
 	}
 
+    /**
+     * @param colour Of the players car
+     * @return
+     */
     public static ImageView getPlayerUpgraded(CarColours colour) {
         Image playerModel = get("player" + colour.toString() + "-selected");
         ImageView player = new ImageView(playerModel);
@@ -212,6 +216,9 @@ public class Assets {
         return player;
     }
 
+    /**
+     * @return Upgraded token png
+     */
     public static ImageView getUpgrade() {
 	    Image upgradeToken = get("car_upgrade");
 	    ImageView token = new ImageView(upgradeToken);
