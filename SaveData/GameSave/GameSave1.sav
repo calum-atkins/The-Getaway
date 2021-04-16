@@ -20,3 +20,7 @@ draw
 floor T_SHAPE UP 8 9
 action null  0 null 
 move 8 7
+draw 
+floor T_SHAPE UP 1 -1
+action null  0 null 
+move 1 0

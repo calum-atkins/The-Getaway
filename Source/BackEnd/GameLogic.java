@@ -51,9 +51,21 @@ public class GameLogic {
 		players = gameItems.getValue();
 		currentPlayer = players[currentPlayerNo];
 		this.gameSaver = gameSaver;
+
+        int upgrade = gameboard.getWidth() * gameboard.getHeight();
+        if (upgrade < 10) {
+            numberUpgrade = 1;
+        } else if (upgrade < 26) {
+            numberUpgrade = 2;
+        } else if (upgrade < 50) {
+            numberUpgrade = 3;
+        } else {
+            numberUpgrade = 4;
+        }
+
 	}
 
-	public void setUpgraded(int playerNo) {
+    public void setUpgraded(int playerNo) {
 	    players[playerNo].setUpgrade(true);
     }
 
@@ -89,9 +101,7 @@ public class GameLogic {
     /**
      * Reduce upgrade token number by one
      */
-    public static void removeUpgrade() {
-        numberUpgrade -= 1;
-    }
+    public static void removeUpgrade() {  numberUpgrade -= 1; }
 
     /**
      *

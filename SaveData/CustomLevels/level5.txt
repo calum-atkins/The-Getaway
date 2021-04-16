@@ -11,7 +11,10 @@ true
 true
 true
 true
-playerPINK
+playerORANGE
 playerYELLOW
 playerTURQUOISE
-playerORANGE
+playerPINK
+2
+0,1
+2,1

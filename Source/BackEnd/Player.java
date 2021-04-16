@@ -70,6 +70,21 @@ public class Player {
         this.colour = colour;
     }
 
+    public void setColour(String colour) {
+        switch (colour) {
+            case "playerPINK" : this.colour = CarColours.PINK; break;
+            case "playerYELLOW" : this.colour = CarColours.YELLOW; break;
+            case "playerORANGE" : this.colour = CarColours.ORANGE; break;
+            case "playerTURQUOISE" : this.colour = CarColours.TURQUOISE; break;
+            case "playerBURGUNDY" : this.colour = CarColours.BURGUNDY; break;
+            case "playerAQUAMARINE" : this.colour = CarColours.AQUAMARINE; break;
+            case "playerGLAUCOUS" : this.colour = CarColours.GLAUCOUS; break;
+            case "playerBLACK" : this.colour = CarColours.BLACK; break;
+            case "playerWHITE" : this.colour = CarColours.WHITE; break;
+            case "playerGREY" : this.colour = CarColours.GREY; break;
+        }
+    }
+
     /**
      *
      * @return Upgraded car

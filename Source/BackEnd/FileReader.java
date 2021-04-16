@@ -5,6 +5,7 @@ import javafx.util.Pair;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -137,36 +138,27 @@ public class FileReader {
                 }
             }
 
-            // Random generation of car upgrade tokens
-            Random rand = new Random();
-            int upgrade = width * height;
-            int repeat = 0;
-            if (upgrade < 10) {
-                repeat = 1;
-            } else if (upgrade < 26) {
-                repeat = 2;
-            } else if (upgrade < 50) {
-                repeat = 3;
-            } else {
-                repeat = 4;
+            String author = in.nextLine();
+            String actionIce = in.nextLine();
+            String actionFire = in.nextLine();
+            String actionDouble = in.nextLine();
+            String actionBack = in.nextLine();
+
+            for (int i = 0; i < 4; i++) {
+                players[i].setColour(in.nextLine());
             }
-            while (gameboard.getUpgradePos().size() != repeat) {
-                boolean add = true;
-                int max = rand.nextInt(gameboard.getHeight());
-                int min = rand.nextInt(gameboard.getWidth());
-                Coordinate coor = new Coordinate(max, min);
-                for (int j = 0; j < gameboard.getNumOfPlayers(); j++) {
-                    if (coor == playerPos[j]) {
-                        add = false;
-                        System.out.println("Player Collided");
-                    } else if (gameboard.tileAt(coor).getType() == TileType.GOAL) {
-                        add = false;
-                        System.out.println("Goal Collided");
-                    }
-                }
-                if (add == true) {
-                    gameboard.addUpgradeToken(new Coordinate(max, min));
-                }
+
+            //Getting Upgrade Tokens
+            String numberOfUpgradeTokens = in.nextLine();
+            for (int i = 0; i < Integer.parseInt(numberOfUpgradeTokens); i++) {
+                String nextLine = in.nextLine();
+                System.out.println(nextLine);
+                String[] pos = nextLine.split(",");
+                int x = Integer.parseInt(pos[0]);
+                int y = Integer.parseInt(pos[1]);
+                System.out.println(x + " : " + y);
+                Coordinate location = new Coordinate(x, y);
+                gameboard.addUpgradeToken(location);
             }
 
             return new Pair<>(gameboard, players);
@@ -257,36 +249,17 @@ public class FileReader {
             }
         }
 
-        // Random generation of car upgrade tokens
-        Random rand = new Random();
-        int upgrade = width * height;
-        int repeat = 0;
-        if (upgrade < 10) {
-            repeat = 1;
-        } else if (upgrade < 26) {
-            repeat = 2;
-        } else if (upgrade < 50) {
-            repeat = 3;
-        } else {
-            repeat = 4;
-        }
-        while (gameboard.getUpgradePos().size() != repeat) {
-            boolean add = true;
-            int max = rand.nextInt(gameboard.getHeight());
-            int min = rand.nextInt(gameboard.getWidth());
-            Coordinate coor = new Coordinate(max, min);
-            for (int j = 0; j < gameboard.getNumOfPlayers(); j++) {
-                if (coor == playerPos[j]) {
-                    add = false;
-                    System.out.println("Player Collided");
-                } else if (gameboard.tileAt(coor).getType() == TileType.GOAL) {
-                    add = false;
-                    System.out.println("Goal Collided");
-                }
-            }
-            if (add == true) {
-                gameboard.addUpgradeToken(new Coordinate(max, min));
-            }
+        //Getting Upgrade Tokens
+        currentLine = new Scanner(in.nextLine());
+        int numberOfUpgradeTokens = currentLine.nextInt();
+        for (int i = 0; i < numberOfUpgradeTokens; i++) {
+
+            currentLine = new Scanner(in.nextLine());
+            int y = currentLine.nextInt();
+            int x = currentLine.nextInt();
+            System.out.println(x + " : " + y);
+            Coordinate location = new Coordinate(x, y);
+            gameboard.addUpgradeToken(location);
         }
 
         return new Pair<>(gameboard, players);
