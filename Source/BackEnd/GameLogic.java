@@ -77,9 +77,9 @@ public class GameLogic {
         players[i].setColour(colour);
     }
 
-    public CarColours getColour(int playerNo) {
-        return players[playerNo].getColour();
-    }
+//    public CarColours getColour(int playerNo) {
+//        return players[playerNo].getColour();
+//    }
 
     /**
      * Returns the current phase of the game
@@ -164,6 +164,7 @@ public class GameLogic {
             players[currentPlayerNo].playFloorTile(location, tile);
         }
         phase = ACTION;
+
     }
 
     /**
@@ -383,5 +384,9 @@ public class GameLogic {
      */
     public void emptyGameSaver() {
         gameSaver.emptyGameSaveString();
+    }
+
+    public CarColours getColour(int i) {
+        return gameboard.getColour(i);
     }
 }

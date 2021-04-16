@@ -145,18 +145,16 @@ public class FileReader {
             String actionBack = in.nextLine();
 
             for (int i = 0; i < 4; i++) {
-                players[i].setColour(in.nextLine());
+                gameboard.addColour(in.nextLine());
             }
 
             //Getting Upgrade Tokens
             String numberOfUpgradeTokens = in.nextLine();
             for (int i = 0; i < Integer.parseInt(numberOfUpgradeTokens); i++) {
                 String nextLine = in.nextLine();
-                System.out.println(nextLine);
                 String[] pos = nextLine.split(",");
                 int x = Integer.parseInt(pos[0]);
                 int y = Integer.parseInt(pos[1]);
-                System.out.println(x + " : " + y);
                 Coordinate location = new Coordinate(x, y);
                 gameboard.addUpgradeToken(location);
             }
@@ -253,14 +251,18 @@ public class FileReader {
         currentLine = new Scanner(in.nextLine());
         int numberOfUpgradeTokens = currentLine.nextInt();
         for (int i = 0; i < numberOfUpgradeTokens; i++) {
-
             currentLine = new Scanner(in.nextLine());
             int y = currentLine.nextInt();
             int x = currentLine.nextInt();
-            System.out.println(x + " : " + y);
             Coordinate location = new Coordinate(x, y);
             gameboard.addUpgradeToken(location);
         }
+
+        gameboard.addColour("playerPINK");
+        gameboard.addColour("playerYELLOW");
+        gameboard.addColour("playerTURQUOISE");
+        gameboard.addColour("playerORANGE");
+
 
         return new Pair<>(gameboard, players);
     }

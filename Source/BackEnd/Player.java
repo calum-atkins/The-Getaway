@@ -42,12 +42,11 @@ public class Player {
         this.gameboard = gameboard;
         this.backTracked = false;
         this.upgrade = false;
-        System.out.println(counter);
         switch (counter) {
-            case 0 : GameScreenController.addColour(CarColours.PINK); System.out.println("1");break;
-            case 1 : GameScreenController.addColour(CarColours.YELLOW); System.out.println("2");break;
-            case 2 : GameScreenController.addColour(CarColours.TURQUOISE); System.out.println("3");break;
-            case 3 : GameScreenController.addColour(CarColours.ORANGE); System.out.println("4");break;
+            case 0 : GameScreenController.addColour(CarColours.PINK); break;
+            case 1 : GameScreenController.addColour(CarColours.YELLOW); break;
+            case 2 : GameScreenController.addColour(CarColours.TURQUOISE); break;
+            case 3 : GameScreenController.addColour(CarColours.ORANGE); break;
         }
         counter++;
     }

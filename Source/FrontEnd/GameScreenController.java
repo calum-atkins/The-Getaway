@@ -452,22 +452,21 @@ public class GameScreenController extends StateLoad {
 
 			ImageView playerView = new ImageView();
 			if (gameLogic.getUpgraded(i) == false) {
-				playerView = Assets.getPlayer(carColoursArrayList.get(i));
+				playerView = Assets.getPlayer(gameLogic.getColour(i));
 			} else {
-				playerView = Assets.getPlayerUpgraded(carColoursArrayList.get(i));
+				playerView = Assets.getPlayerUpgraded(gameLogic.getColour(i));
 			}
 			playerView.setTranslateX(location.getX() * tileWidth);
 			playerView.setTranslateY(location.getY() * tileWidth);
 			players.getChildren().add(playerView);
 		}
+
 		//Showing players turn (car colour)
-		imagePlayer.setImage(new Image(new FileInputStream("Assets\\player"
-				+ carColoursArrayList.get(gameLogic.getPlayersTurn()).toString() + ".png")));
+		imagePlayer.setImage(new Image(new FileInputStream("Assets\\player"  + gameLogic.getColour(gameLogic.getPlayersTurn()) + ".png")));
 
 		//Showing upgrade tokens
 		for (int i = 0; i < gameLogic.getNumberUpgrade(); i++) {
 			Coordinate location = gameLogic.getUpgradeLocations()[i];
-
 			ImageView upgradeView = new ImageView();
 			upgradeView = Assets.getUpgrade();
 			upgradeView.setTranslateX(location.getX() * tileWidth);
@@ -475,9 +474,6 @@ public class GameScreenController extends StateLoad {
 			upgrades.getChildren().add(upgradeView);
 		}
 	}
-
-
-
 	/**
 	 * Clears the game and starts a new one with given starting board
 	 *

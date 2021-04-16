@@ -38,6 +38,7 @@ public class Gameboard {
     private final Coordinate[][] playerLocations;
     private final ArrayList<FloorTile> boardTiles;
     private ArrayList<Coordinate> upgradeCoors;
+    private ArrayList<CarColours> carColours;
 
 
     /**
@@ -57,6 +58,11 @@ public class Gameboard {
         this.boardTiles = new ArrayList<>(width * height);
         this.playerLocations = new Coordinate[4][3];
         this.upgradeCoors = new ArrayList<>();
+        this.carColours = new ArrayList<>();
+    }
+
+    public CarColours getColour(int i) {
+        return carColours.get(i);
     }
 
     /**
@@ -676,4 +682,20 @@ public class Gameboard {
     }
 
 
+    public void addColour(String colour) {
+        System.out.println(colour);
+        switch (colour) {
+            case "playerPINK" : carColours.add(CarColours.PINK); break;
+            case "playerYELLOW" : carColours.add(CarColours.YELLOW); break;
+            case "playerORANGE" : carColours.add(CarColours.ORANGE); break;
+            case "playerTURQUOISE" : carColours.add(CarColours.TURQUOISE); break;
+            case "playerBURGUNDY" : carColours.add(CarColours.BURGUNDY); break;
+            case "playerAQUAMARINE" : carColours.add(CarColours.AQUAMARINE); break;
+            case "playerGLAUCOUS" : carColours.add(CarColours.GLAUCOUS); break;
+            case "playerBLACK" : carColours.add(CarColours.BLACK); break;
+            case "playerWHITE" : carColours.add(CarColours.WHITE); break;
+            case "playerGREY" : carColours.add(CarColours.GREY); break;
+        }
+
+    }
 }
