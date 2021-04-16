@@ -52,6 +52,7 @@ public class Assets {
      * @return Selected variant of the image
      */
     public static Image getSelected(String name)    {
+        System.out.println(name + "-selected");
         return new Image(name + "-selected" + EXT);
     }
     /**
@@ -220,11 +221,11 @@ public class Assets {
      * @return Upgraded token png
      */
     public static ImageView getUpgrade() {
-	    Image upgradeToken = get("car_upgrade");
+	    Image upgradeToken = get("upgrade");
 	    ImageView token = new ImageView(upgradeToken);
 	    token.setFitHeight(GameScreenController.tileWidth);
 	    token.setFitWidth(GameScreenController.tileWidth);
-	    token.setId("car_upgrade");
+	    token.setId("upgrade");
 	    return token;
     }
 

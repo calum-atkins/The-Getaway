@@ -103,13 +103,21 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fx:id="imgGoal" fitHeight="77.0" fitWidth="71.0" layoutX="88.0" layoutY="250.0" onMouseClicked="#onGoal" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imgGoal" fitHeight="77.0" fitWidth="71.0" layoutX="18.0" layoutY="254.0" onMouseClicked="#onGoal" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../Assets/goal.png" />
                            </image>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
+                        </ImageView>
+                        <ImageView fx:id="imgUpgrade" fitHeight="77.0" fitWidth="71.0" layoutX="159.0" layoutY="254.0" onMouseClicked="#onUp" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../Assets/upgrade.png" />
+                            </image>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
                         </ImageView>
                         <Label layoutX="18.0" layoutY="126.0" text="Corner" />
                         <Label layoutX="17.0" layoutY="228.0" text="T-Shape" />

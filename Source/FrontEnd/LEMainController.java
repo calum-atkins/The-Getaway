@@ -91,7 +91,7 @@ public class LEMainController extends StateLoad {
     @FXML
     ScrollPane paneCanv;
     @FXML
-    ImageView imgPlayer1 = new ImageView(), imgPlayer2 = new ImageView(), imgPlayer3 = new ImageView(), imgPlayer4 = new ImageView(), imgCorner = new ImageView(), imgStraight = new ImageView(), imgT = new ImageView(), imgEmpty = new ImageView(), imgGoal = new ImageView(), imgDouble = new ImageView(), imgFire = new ImageView(), imgIce = new ImageView(), imgBacktrack = new ImageView(), imgPlayerSel1 = new ImageView(), imgPlayerSel2 = new ImageView(), imgPlayerSel3 = new ImageView(), imgPlayerSel4 = new ImageView();
+    ImageView imgPlayer1 = new ImageView(), imgPlayer2 = new ImageView(), imgPlayer3 = new ImageView(), imgPlayer4 = new ImageView(), imgCorner = new ImageView(), imgStraight = new ImageView(), imgT = new ImageView(), imgEmpty = new ImageView(), imgGoal = new ImageView(), imgUpgrade = new ImageView(), imgDouble = new ImageView(), imgFire = new ImageView(), imgIce = new ImageView(), imgBacktrack = new ImageView(), imgPlayerSel1 = new ImageView(), imgPlayerSel2 = new ImageView(), imgPlayerSel3 = new ImageView(), imgPlayerSel4 = new ImageView();
     @FXML
     Slider sliWidth = new Slider(), sliHeight = new Slider();
     @FXML
@@ -402,6 +402,11 @@ public class LEMainController extends StateLoad {
 
     public void onGoal() {
         setTemp(imgGoal, "goal", "Goal Tile Selected");
+        intPlayerSel = 0;
+    }
+
+    public void onUp() {
+        setTemp(imgUpgrade, "upgrade", "Upgrade Token Selected");
         intPlayerSel = 0;
     }
 
