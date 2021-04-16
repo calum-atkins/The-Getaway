@@ -107,6 +107,9 @@ public class Player {
             }
         }
         lastDrawnTile = silkBag.getTile();
+        while (lastDrawnTile.getType() == TileType.GOAL) {
+            lastDrawnTile = silkBag.getTile();
+        }
     }
 
 
