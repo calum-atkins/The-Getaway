@@ -460,8 +460,9 @@ public class GameScreenController extends StateLoad {
 			playerView.setTranslateY(location.getY() * tileWidth);
 			players.getChildren().add(playerView);
 		}
-		//Showing players turn
-		imagePlayer.setImage(new Image(new FileInputStream("Assets\\player" + carColoursArrayList.get(gameLogic.getPlayersTurn()).toString() + ".png")));
+		//Showing players turn (car colour)
+		imagePlayer.setImage(new Image(new FileInputStream("Assets\\player"
+				+ carColoursArrayList.get(gameLogic.getPlayersTurn()).toString() + ".png")));
 
 		//Showing upgrade tokens
 		for (int i = 0; i < gameLogic.getNumberUpgrade(); i++) {

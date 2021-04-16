@@ -138,17 +138,36 @@ public class FileReader {
             }
 
             // Random generation of car upgrade tokens
-//            Random rand = new Random();
-//            for (int i = 0; i < gameboard.getNumOfPlayers(); i++) {
-//                int max = rand.nextInt(gameboard.getHeight());
-//                int min = rand.nextInt(gameboard.getWidth());
-//                gameboard.addUpgradeToken(max, min);
-//            }
-            gameboard.addUpgradeToken(new Coordinate(1, 1));
-            gameboard.addUpgradeToken(new Coordinate(5, 5));
-            gameboard.addUpgradeToken(new Coordinate(0, 5));
-            gameboard.addUpgradeToken(new Coordinate(0, 1));
-
+            Random rand = new Random();
+            int upgrade = width * height;
+            int repeat = 0;
+            if (upgrade < 10) {
+                repeat = 1;
+            } else if (upgrade < 26) {
+                repeat = 2;
+            } else if (upgrade < 50) {
+                repeat = 3;
+            } else {
+                repeat = 4;
+            }
+            while (gameboard.getUpgradePos().size() != repeat) {
+                boolean add = true;
+                int max = rand.nextInt(gameboard.getHeight());
+                int min = rand.nextInt(gameboard.getWidth());
+                Coordinate coor = new Coordinate(max, min);
+                for (int j = 0; j < gameboard.getNumOfPlayers(); j++) {
+                    if (coor == playerPos[j]) {
+                        add = false;
+                        System.out.println("Player Collided");
+                    } else if (gameboard.tileAt(coor).getType() == TileType.GOAL) {
+                        add = false;
+                        System.out.println("Goal Collided");
+                    }
+                }
+                if (add == true) {
+                    gameboard.addUpgradeToken(new Coordinate(max, min));
+                }
+            }
 
             return new Pair<>(gameboard, players);
 
@@ -239,12 +258,36 @@ public class FileReader {
         }
 
         // Random generation of car upgrade tokens
-//        Random rand = new Random();
-//        for (int i = 0; i < gameboard.getNumOfPlayers(); i++) {
-//            int max = rand.nextInt(gameboard.getHeight());
-//            int min = rand.nextInt(gameboard.getWidth());
-//            gameboard.addUpgradeToken(max, min);
-//        }
+        Random rand = new Random();
+        int upgrade = width * height;
+        int repeat = 0;
+        if (upgrade < 10) {
+            repeat = 1;
+        } else if (upgrade < 26) {
+            repeat = 2;
+        } else if (upgrade < 50) {
+            repeat = 3;
+        } else {
+            repeat = 4;
+        }
+        while (gameboard.getUpgradePos().size() != repeat) {
+            boolean add = true;
+            int max = rand.nextInt(gameboard.getHeight());
+            int min = rand.nextInt(gameboard.getWidth());
+            Coordinate coor = new Coordinate(max, min);
+            for (int j = 0; j < gameboard.getNumOfPlayers(); j++) {
+                if (coor == playerPos[j]) {
+                    add = false;
+                    System.out.println("Player Collided");
+                } else if (gameboard.tileAt(coor).getType() == TileType.GOAL) {
+                    add = false;
+                    System.out.println("Goal Collided");
+                }
+            }
+            if (add == true) {
+                gameboard.addUpgradeToken(new Coordinate(max, min));
+            }
+        }
 
         return new Pair<>(gameboard, players);
     }
