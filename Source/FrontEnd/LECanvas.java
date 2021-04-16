@@ -31,6 +31,7 @@ public class LECanvas {
     Image imageStraight;
     Image imageTShape;
     Image imageCorner;
+    Image imageUpgrade;
 
     Image imagePlGrey;
     Image imagePlPink;
@@ -104,6 +105,7 @@ public class LECanvas {
         imageStraight = new Image("straight.png");
         imageTShape = new Image("t_shape.png");
         imageCorner = new Image("corner.png");
+        imageUpgrade = new Image("upgrade.png");
 
         imagePlGrey = new Image("playerGREY.png");
         imagePlPink = new Image("playerPINK.png");
@@ -605,7 +607,9 @@ public class LECanvas {
                     break;
                 case "corner":
                     tileType = TileType.CORNER;
-                    System.out.println("Corner selected as TileType");
+                    break;
+                case "upgrade" :
+                    tileType = TileType.UPGRADE;
                     break;
                 default:
                     break;
@@ -681,6 +685,10 @@ public class LECanvas {
             case STRAIGHT:
                 image = imageStraight;
                 imageStr = "straight";
+                break;
+            case UPGRADE:
+                image = imageUpgrade;
+                imageStr = "upgrade";
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + tempSel);

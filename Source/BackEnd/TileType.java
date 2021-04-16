@@ -16,5 +16,6 @@ public enum TileType {
     BACKTRACK,
     DOUBLE_MOVE,
     GOAL,
-    EMPTY
+    EMPTY,
+    UPGRADE
 }

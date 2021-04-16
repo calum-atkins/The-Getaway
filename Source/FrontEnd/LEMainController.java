@@ -683,7 +683,7 @@ public class LEMainController extends StateLoad {
         MAIN_MENU_AUDIO.play(Double.parseDouble(getInitData().get("SFXVol")));
         intRotate = intRotate - 90;
         //Validation for goal and empty tile
-        if (tempSel.equals("goal") || tempSel.equals("empty")) {
+        if (tempSel.equals("goal") || tempSel.equals("empty") || tempSel.equals("upgrade")) {
             lblStatus.setText("These tiles don't rotate");
             intRotate = 0;
             return;
@@ -704,7 +704,7 @@ public class LEMainController extends StateLoad {
     public void onRight() {
         MAIN_MENU_AUDIO.play(Double.parseDouble(getInitData().get("SFXVol")));
         intRotate = intRotate + 90;
-        if (tempSel.equals("goal") || tempSel.equals("empty")) {
+        if (tempSel.equals("goal") || tempSel.equals("empty") || tempSel.equals("upgrade")) {
             lblStatus.setText("These tiles don't rotate");
             intRotate = 0;
             return;
@@ -804,7 +804,7 @@ public class LEMainController extends StateLoad {
         imgVTemp.setImage(Assets.getUnSelected(tempSel));
         imgVTemp.setRotate(0);
         //Disabling Rotation for Goal and Empty Tile
-        if (newName.equals("goal") || newName.equals("empty")) {
+        if (newName.equals("goal") || newName.equals("empty") || newName.equals("upgrade")) {
             lblRotate.setDisable(true);
             btnRight.setDisable(true);
             btnLeft.setDisable(true);
