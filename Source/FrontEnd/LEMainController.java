@@ -1,9 +1,6 @@
 package FrontEnd;
 
-import BackEnd.CarColours;
-import BackEnd.LESave;
-import BackEnd.PlaceCoords;
-import BackEnd.StringTrimmer;
+import BackEnd.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
@@ -40,6 +37,7 @@ import java.util.ResourceBundle;
 public class LEMainController extends StateLoad {
     private boolean boolChanges = false;
     private HashMap<String, String> initData;
+    private ArrayList<Coordinate> upgrades;
     int tempNo;
     //Blank ImageView to use when De-Selecting Items
     private final ImageView blankImage = new ImageView();
@@ -135,6 +133,8 @@ public class LEMainController extends StateLoad {
     PlaceCoords p2Coords;
     PlaceCoords p3Coords;
     PlaceCoords p4Coords;
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -250,7 +250,9 @@ public class LEMainController extends StateLoad {
         player4Color = "playerORANGE";
 
 
+        System.out.println(upgrades.get(0).getY() + "   HERE");
         boardRender = new LECanvas(mainCanvas, lblStatus);
+
 
         lblStatus.setText("Main View Loading...");
         //How'd that get in there?
@@ -373,6 +375,7 @@ public class LEMainController extends StateLoad {
         enumdColor2 = StringTrimmer.trim(player2Color, "player");
         enumdColor3 = StringTrimmer.trim(player3Color, "player");
         enumdColor4 = StringTrimmer.trim(player4Color, "player");
+
         lblStatus.setText("Main View Loading...");
         boolNowLoading = false;
     }
@@ -631,7 +634,7 @@ public class LEMainController extends StateLoad {
             if (initData.get("loaded").equals("true")) {
                 boardRender.loadBoard(arrayBoard, width, height, p1Coords, p2Coords, p3Coords, p4Coords,
                         CarColours.valueOf(enumdColor1.toUpperCase()), CarColours.valueOf(enumdColor2.toUpperCase()),
-                        CarColours.valueOf(enumdColor3.toUpperCase()), CarColours.valueOf(enumdColor4.toUpperCase()));
+                        CarColours.valueOf(enumdColor3.toUpperCase()), CarColours.valueOf(enumdColor4.toUpperCase()), upgrades);
                 boolEnteredOnce = true;
                 lblStatus.setText("Nothing is Selected");
             } else {
@@ -1279,6 +1282,10 @@ public class LEMainController extends StateLoad {
         p2Coords = new PlaceCoords(Integer.parseInt(xCoords[1]), Integer.parseInt(yCoords[1]));
         p3Coords = new PlaceCoords(Integer.parseInt(xCoords[2]), Integer.parseInt(yCoords[2]));
         p4Coords = new PlaceCoords(Integer.parseInt(xCoords[3]), Integer.parseInt(yCoords[3]));
+    }
+
+    public void setUpgrades(ArrayList<Coordinate> upgrades) {
+        this.upgrades = upgrades;
     }
 }
 

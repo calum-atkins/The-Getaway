@@ -1,9 +1,6 @@
 package FrontEnd;
 
-import BackEnd.CarColours;
-import BackEnd.PlaceCoords;
-import BackEnd.Player;
-import BackEnd.TileType;
+import BackEnd.*;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
@@ -13,6 +10,7 @@ import javafx.scene.transform.Rotate;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * LECanvas class is used to interact with the canvas(also reffered as render) on the Level Editor view.
@@ -89,6 +87,8 @@ public class LECanvas {
     //to check if a swap is needed(a tile is taken or not)
     boolean prevTileTaken = false;
 
+    ArrayList<Coordinate> upgradePos;
+
 
     /**
      * Constructor for LECanvas to intialise the canvas and label.
@@ -99,6 +99,7 @@ public class LECanvas {
     public LECanvas(Canvas impCanvas, Label lblStatus) {
         canvas = impCanvas;
         this.lblstatus = lblStatus;
+        this.upgradePos = new ArrayList<>();
 
         imageEmpty = new Image("empty.png");
         imageGoal = new Image("goal.png");
@@ -136,10 +137,11 @@ public class LECanvas {
      */
     public void loadBoard(Slot[][] loadArrayBoard, int width, int height, PlaceCoords player1CoordsLoad,
                           PlaceCoords player2CoordsLoad, PlaceCoords player3CoordsLoad, PlaceCoords player4CoordsLoad,
-                          CarColours playerColor1, CarColours playerColor2, CarColours playerColor3, CarColours playerColor4) {
+                          CarColours playerColor1, CarColours playerColor2, CarColours playerColor3, CarColours playerColor4, ArrayList<Coordinate> pos) {
 
         //loading board
         arrayBoard = loadArrayBoard;
+        upgradePos = pos;
 
         if (canvas.getHeight() >= canvas.getWidth()) {
             boardSizePx = (int) canvas.getWidth();
@@ -199,6 +201,10 @@ public class LECanvas {
         arrayBoard[player4CoordsLoad.getLocX()][player4CoordsLoad.getLocY()].setWhichPlayer(4);
         arrayBoard[player4CoordsLoad.getLocX()][player4CoordsLoad.getLocY()].setCarColours(playerColor4);
         drawPlayer(player4CoordsLoad.getLocX()+1, player4CoordsLoad.getLocY()+1, playerColor4, 0);
+
+        for (int i = 0; i < upgradePos.size(); i++) {
+            drawUpgrade(upgradePos.get(i));
+        }
 
     }
 
@@ -342,6 +348,19 @@ public class LECanvas {
         arrayBoard[width-1][height-1].setCarColours(enumColor4);
         drawPlayer(width,height,enumColor4,0);
 
+    }
+
+    public void drawUpgrade(Coordinate coor) {
+        Image image = imageUpgrade;
+
+        System.out.println(coor.getX() + " : " + coor.getY());
+        double whereXDrawn = ((coor.getY() * tileSize) - tileSize) + topLeftX;
+        double whereYDrawn = ((coor.getX() * tileSize) - tileSize) + topLeftY;
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        gc.save();
+        gc.drawImage(image, whereXDrawn, whereYDrawn, tileSize, tileSize);
+
+        gc.restore();
     }
 
     /**
@@ -664,6 +683,12 @@ public class LECanvas {
         Image image;
         String imageStr;
 
+        double whereXDrawn = ((locX * tileSize) - tileSize) + topLeftX;
+        double whereYDrawn = ((locY * tileSize) - tileSize) + topLeftY;
+        int x = (int)(whereXDrawn-235) / (int)tileSize;
+        int y = (int)whereYDrawn / (int)tileSize;
+
+
         //determine image from tile type
         switch (tempSel) {
             case EMPTY:
@@ -689,13 +714,12 @@ public class LECanvas {
             case UPGRADE:
                 image = imageUpgrade;
                 imageStr = "upgrade";
+                upgradePos.add(new Coordinate(x, y));
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + tempSel);
         }
 
-        double whereXDrawn = ((locX * tileSize) - tileSize) + topLeftX;
-        double whereYDrawn = ((locY * tileSize) - tileSize) + topLeftY;
 
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.save();
@@ -792,5 +816,13 @@ public class LECanvas {
 
 
         return placeCoordsTemp;
+    }
+
+    public int getNumberUpgrade() {
+        return upgradePos.size();
+    }
+
+    public Coordinate getUpgradePos(int i) {
+        return upgradePos.get(i);
     }
 }

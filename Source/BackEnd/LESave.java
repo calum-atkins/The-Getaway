@@ -78,8 +78,8 @@ public class LESave {
 
                     String currentTile = null;
 
-                    if (slots[j][i] != null) {
-                        Slot tile = slots[j][i];
+                    if (slots[i][j] != null) {
+                        Slot tile = slots[i][j];
                         String tileType = tile.getTileType().toString();
                         int rotation = tile.getRotate();
 
@@ -146,7 +146,13 @@ public class LESave {
             bw.write(player1Colour); bw.newLine();
             bw.write(player2Colour); bw.newLine();
             bw.write(player3Colour); bw.newLine();
-            bw.write(player4Colour);
+            bw.write(player4Colour); bw.newLine();
+
+            bw.write(Integer.toString(canvas.getNumberUpgrade()));
+            for  (int i = 0; i < canvas.getNumberUpgrade(); i++) {
+                bw.newLine();
+                bw.write(canvas.getUpgradePos(i).getX() + "," + canvas.getUpgradePos(i).getY());
+            }
 
             CustomAlerts.Warning("Saving File", "File " + fileName + " successfully saved.");
             bw.close();

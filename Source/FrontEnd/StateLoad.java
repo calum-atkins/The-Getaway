@@ -1,8 +1,10 @@
 package FrontEnd;
 
+import BackEnd.Coordinate;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 

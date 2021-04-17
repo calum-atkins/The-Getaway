@@ -1,5 +1,6 @@
 package FrontEnd;
 
+import BackEnd.Coordinate;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -71,13 +72,15 @@ public class WindowLoader {
 		}
 	}
 
-	public void loadCustom(String window, HashMap<String, String> initData, Slot[][] slots, String[] startLocationX, String[] startLocationY) {
+	public void loadCustom(String window, HashMap<String, String> initData, Slot[][] slots, String[] startLocationX, String[] startLocationY, ArrayList<Coordinate> upgradePos) {
 		Parent root = null;
 		try {
 			loader = new FXMLLoader();
 			loader.setLocation(Objects.requireNonNull(getClass().getClassLoader().getResource(fileLocation + window + ".fxml")));
 			root = loader.load();
 			LEMainController controller = loader.getController();
+			controller.setUpgrades(upgradePos);
+			System.out.println(upgradePos.get(0).getY());
 			controller.setInitData(initData);
 			controller.setArrayBoard(slots);
 			controller.setPlayerCoords(startLocationX, startLocationY);

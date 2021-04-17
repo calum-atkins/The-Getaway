@@ -1,10 +1,12 @@
 package FrontEnd;
 
+import BackEnd.Coordinate;
 import BackEnd.Player;
 import BackEnd.TileType;
 import FrontEnd.Slot;
 import FrontEnd.StateLoad;
 import FrontEnd.WindowLoader;
+import com.sun.corba.se.impl.encoding.CDROutputObject;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,6 +18,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.Scanner;
@@ -32,6 +35,7 @@ public class LELoad {
 
     private int numberOfPlayers;
     private HashMap<String, String> initData;
+    private ArrayList<Coordinate> upgradePos;
 
     public void LELoad() {
     }
@@ -41,6 +45,7 @@ public class LELoad {
      * @param fileName The name of file to be loaded.
      */
     public void load(String fileName, HashMap<String, String> id, Scene scene, Stage prevStage) throws IOException {
+        upgradePos = new ArrayList<>();
         initData = id;
         System.out.println("Loading Board " + fileName);
         try {
@@ -125,11 +130,21 @@ public class LELoad {
             initData.put("player4col", player4Col);
             initData.put("loaded", "true");
 
+            int numberUpgrades = Integer.parseInt(reader.nextLine());
+            for (int i = 0; i < numberUpgrades; i++) {
+                Scanner lineScan = new Scanner(reader.nextLine());
+                lineScan.useDelimiter(",");
+                int x = Integer.parseInt(lineScan.next());
+                int y = Integer.parseInt(lineScan.next());
+                upgradePos.add(new Coordinate(x, y));
+//                System.out.println(x + " : " + y);
+            }
+
             //get values and return array board
             reader.close();
             WindowLoader wl;
             wl = new WindowLoader(prevStage);
-            wl.loadCustom("LEMain", initData,slots, startLocationX,startLocationY);
+            wl.loadCustom("LEMain", initData,slots, startLocationX,startLocationY, upgradePos);
 
         }
         catch (FileNotFoundException e) {
