@@ -249,8 +249,7 @@ public class LEMainController extends StateLoad {
         player3Color = "playerTURQUOISE";
         player4Color = "playerORANGE";
 
-
-        System.out.println(upgrades.get(0).getY() + "   HERE");
+        upgrades = new ArrayList<>();
         boardRender = new LECanvas(mainCanvas, lblStatus);
 
 

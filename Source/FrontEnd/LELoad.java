@@ -85,7 +85,8 @@ public class LELoad {
                         case "4": slots[i][j] = new Slot(0, TileType.T_SHAPE, i, j, 270); break;
                         case "$": slots[i][j] = new Slot(0, TileType.T_SHAPE, i, j, 0); break;
                         case "5": slots[i][j] = new Slot(0, TileType.T_SHAPE, i, j, 90); break;
-                        case "*": slots[i][j] = new Slot(0, TileType.GOAL, i, j, 0);; break;
+                        case "*": slots[i][j] = new Slot(0, TileType.GOAL, i, j, 0); break;
+                        case "u" : slots[i][j] = new Slot(0, TileType.T_SHAPE, i, j, 0); break;
                         default: CustomAlerts.Warning("User Alert", "Something is wrong with the structure of the tiles in your saved level, please try a different one."); return;
                     }
                 }
@@ -137,7 +138,6 @@ public class LELoad {
                 int x = Integer.parseInt(lineScan.next());
                 int y = Integer.parseInt(lineScan.next());
                 upgradePos.add(new Coordinate(x, y));
-//                System.out.println(x + " : " + y);
             }
 
             //get values and return array board

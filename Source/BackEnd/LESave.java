@@ -111,6 +111,8 @@ public class LESave {
                             bw.write("5");
                         } else if (tileType.equals("GOAL")) {
                             bw.write("*");
+                        } else if (tileType.equals("UPGRADE")) {
+                            bw.write("u");
                         }
                         bw.write(",");
                         if (tile.getWhichPlayer() != 0) {
